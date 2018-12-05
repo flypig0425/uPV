@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E0B85A2B-4BF3-4DC9-926A-2030CC57DC52}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>uPV.ImageView.MediaBrowser</RootNamespace>
+    <AssemblyName>uPV.ImageView.MediaBrowser</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClearCanvas.Common">
+      <HintPath>..\..\ReferencedAssemblies\ClearCanvas.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ClearCanvas.Controls.WinForms">
+      <HintPath>..\..\ReferencedAssemblies\ClearCanvas.Controls.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="ClearCanvas.Desktop">
+      <HintPath>..\..\ReferencedAssemblies\ClearCanvas.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="ClearCanvas.Desktop.Explorer">
+      <HintPath>..\..\ReferencedAssemblies\ClearCanvas.Desktop.Explorer.dll</HintPath>
+    </Reference>
+    <Reference Include="ClearCanvas.Desktop.Explorer.View.WinForms">
+      <HintPath>..\..\ReferencedAssemblies\ClearCanvas.Desktop.Explorer.View.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="ClearCanvas.Desktop.View.WinForms">
+      <HintPath>..\..\ReferencedAssemblies\ClearCanvas.Desktop.View.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="ClearCanvas.Dicom">
+      <HintPath>..\..\ReferencedAssemblies\ClearCanvas.Dicom.dll</HintPath>
+    </Reference>
+    <Reference Include="ClearCanvas.ImageViewer">
+      <HintPath>..\..\ReferencedAssemblies\ClearCanvas.ImageViewer.dll</HintPath>
+    </Reference>
+    <Reference Include="ClearCanvas.ImageViewer.Common">
+      <HintPath>..\..\ReferencedAssemblies\ClearCanvas.ImageViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ClearCanvas.ImageViewer.Configuration">
+      <HintPath>..\..\ReferencedAssemblies\ClearCanvas.ImageViewer.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DicomDirStudyFinder.cs" />
+    <Compile Include="DicomDirStudyLoader.cs" />
+    <Compile Include="IMediaBrowserComponent.cs" />
+    <Compile Include="MediaBrowserExplorer.cs" />
+    <Compile Include="MediaBrowserExplorerComponent.cs" />
+    <Compile Include="MediaFileStore\CollectionBase.cs" />
+    <Compile Include="MediaFileStore\DicomDir\DicomDirFileSet.cs" />
+    <Compile Include="MediaFileStore\DicomDir\DicomDirReader.cs" />
+    <Compile Include="MediaFileStore\MediaFileSet.cs" />
+    <Compile Include="MediaFileStore\Series.cs" />
+    <Compile Include="MediaFileStore\SopInstance.cs" />
+    <Compile Include="MediaFileStore\Study.cs" />
+    <Compile Include="PreLoadingSettings.cs" />
+    <Compile Include="PreLoadingSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>PreLoadingSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StudyTable.cs" />
+    <Compile Include="Tools\OpenFileSetTool.cs" />
+    <Compile Include="Tools\OpenFilesTool.cs" />
+    <Compile Include="Tools\OpenStudyTool.cs" />
+    <Compile Include="View\MediaBrowserExplorerComponentView.cs" />
+    <Compile Include="View\MediaBrowserExplorerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MediaBrowserExplorerControl.Designer.cs">
+      <DependentUpon>MediaBrowserExplorerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MediaBrowserExplorerControl.resx">
+      <DependentUpon>MediaBrowserExplorerControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icons\OpenToolLarge.png" />
+    <EmbeddedResource Include="Icons\OpenToolMedium.png" />
+    <EmbeddedResource Include="Icons\OpenToolSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="PreLoadingSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>PreLoadingSettings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
